@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: oklch(0.97 0.01 250);
+  --color-primary-100: oklch(0.93 0.03 250);
+  --color-primary-200: oklch(0.86 0.06 250);
+  --color-primary-300: oklch(0.76 0.12 250);
+  --color-primary-400: oklch(0.65 0.18 250);
+  --color-primary-500: oklch(0.55 0.22 250);
+  --color-primary-600: oklch(0.50 0.22 250);
+  --color-primary-700: oklch(0.42 0.18 250);
+  --color-primary-800: oklch(0.35 0.14 250);
+  --color-primary-900: oklch(0.30 0.10 250);
+  --color-primary-950: oklch(0.20 0.06 250);
+
+  --color-background: white;
+  --color-foreground: oklch(0.15 0 0);
+  --color-muted: oklch(0.96 0 0);
+  --color-muted-foreground: oklch(0.45 0 0);
+  --color-border: oklch(0.90 0 0);
+  --color-input: oklch(0.90 0 0);
+  --color-ring: oklch(0.55 0.22 250);
+
+  --font-body: "Inter", "system-ui", "sans-serif";
+  --breakpoint-3xl: 1920px;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: oklch(0.15 0 0);
+    --color-foreground: white;
+    --color-muted: oklch(0.20 0 0);
+    --color-muted-foreground: oklch(0.65 0 0);
+    --color-border: oklch(0.25 0 0);
+    --color-input: oklch(0.25 0 0);
+    --color-primary-500: oklch(0.65 0.22 250);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  h5 {
+    font-size: 1.125rem;
+  }
+
+  h6 {
+    font-size: 1rem;
+  }
+}
+
+@utility sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
