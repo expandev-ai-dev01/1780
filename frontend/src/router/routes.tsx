@@ -6,6 +6,7 @@ import { LoadingSpinner } from '@/core/components/LoadingSpinner';
 import { ErrorBoundary } from '@/core/components/ErrorBoundary';
 
 const HomePage = lazy(() => import('@/pages/Home'));
+const VehicleDetailPage = lazy(() => import('@/pages/VehicleDetail'));
 
 const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
   <Suspense fallback={<LoadingSpinner />}>{children}</Suspense>
@@ -25,6 +26,14 @@ export const appRouter = createBrowserRouter([
             element: (
               <SuspenseWrapper>
                 <HomePage />
+              </SuspenseWrapper>
+            ),
+          },
+          {
+            path: 'vehicle/:id',
+            element: (
+              <SuspenseWrapper>
+                <VehicleDetailPage />
               </SuspenseWrapper>
             ),
           },
